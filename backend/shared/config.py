@@ -58,3 +58,27 @@ class CorsConfig:
 
 
 cors_config = CorsConfig()
+
+
+# --- Token Configuration ---
+class AccessTokenConfig:
+    reset_password_token_secret: str = os.getenv("RESET_PASSWORD_TOKEN_SECRET")
+    verification_token_secret: str = os.getenv("VERIFICATION_TOKEN_SECRET")
+
+
+access_token_config = AccessTokenConfig()
+
+
+# --- API Prefix Configuration ---
+class APIV1PrefixConfig:
+    prefix: str = "/v1"
+    auth: str = "/auth"
+    users: str = "/users"
+
+
+class APIPrefixConfig:
+    prefix: str = "/api"
+    v1: APIV1PrefixConfig = APIV1PrefixConfig()
+
+
+api_prefix_config = APIPrefixConfig()

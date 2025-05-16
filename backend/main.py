@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from shared.config import cors_config
 from shared.database import db_manager
+from shared.routers import router as main_router
 
 
 @asynccontextmanager
@@ -22,3 +23,5 @@ app.add_middleware(
     allow_methods=cors_config.allow_methods,
     allow_headers=cors_config.allow_headers,
 )
+
+app.include_router(main_router)

@@ -2,6 +2,8 @@ import asyncio
 from logging.config import fileConfig
 
 from alembic import context
+from features.auth.access_token.model import AccessToken
+from features.user.model import User
 from shared.config import db_config
 from shared.models.base import Base
 from sqlalchemy import pool
